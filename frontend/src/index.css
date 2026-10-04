@@ -28,3 +28,22 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2F80ED;
 }
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(230, 57, 70, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+.railway-glass {
+  background: rgba(11, 22, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 45, 69, 0.8);
+}
