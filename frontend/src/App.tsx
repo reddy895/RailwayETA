@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage';
 import { TrainSearchPage } from './pages/TrainSearchPage';
 import { TrackTrainPage } from './pages/TrackTrainPage';
 import { StationBoardPage } from './pages/StationBoardPage';
+import { TrainDetailsPage } from './pages/TrainDetailsPage';
 
 // Temporary placeholder components until detailed page commits
 const PnrPage = () => <div className="text-white p-6">PNR Status</div>;
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="trains" element={<TrainSearchPage />} />
+        <Route path="train/:trainNumber" element={<TrainDetailsPage />} />
         <Route path="track" element={<TrackTrainPage />} />
         <Route path="track/:trainNumber" element={<TrackTrainPage />} />
         <Route path="station" element={<StationBoardPage />} />
