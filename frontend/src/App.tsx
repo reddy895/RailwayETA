@@ -6,10 +6,8 @@ import { TrainSearchPage } from './pages/TrainSearchPage';
 import { TrackTrainPage } from './pages/TrackTrainPage';
 import { StationBoardPage } from './pages/StationBoardPage';
 import { TrainDetailsPage } from './pages/TrainDetailsPage';
-
-// Temporary placeholder components until detailed page commits
-const PnrPage = () => <div className="text-white p-6">PNR Status</div>;
-const AvailabilityPage = () => <div className="text-white p-6">Seat Availability</div>;
+import { PnrPage } from './pages/PnrPage';
+import { AvailabilityPage } from './pages/AvailabilityPage';
 
 export default function App() {
   return (
