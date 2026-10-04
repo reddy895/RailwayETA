@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import { AppLayout } from './layouts/AppLayout';
 
+import { HomePage } from './pages/HomePage';
+
 // Temporary placeholder components until detailed page commits
-const HomePage = () => <div className="text-white p-6">RailETA Home</div>;
 const TrainSearchPage = () => <div className="text-white p-6">Train Search</div>;
 const TrackTrainPage = () => <div className="text-white p-6">Live Track Train</div>;
 const StationBoardPage = () => <div className="text-white p-6">Station Live Board</div>;
