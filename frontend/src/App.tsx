@@ -2,9 +2,9 @@ import { Routes, Route } from 'react-router-dom';
 import { AppLayout } from './layouts/AppLayout';
 
 import { HomePage } from './pages/HomePage';
+import { TrainSearchPage } from './pages/TrainSearchPage';
 
 // Temporary placeholder components until detailed page commits
-const TrainSearchPage = () => <div className="text-white p-6">Train Search</div>;
 const TrackTrainPage = () => <div className="text-white p-6">Live Track Train</div>;
 const StationBoardPage = () => <div className="text-white p-6">Station Live Board</div>;
 const PnrPage = () => <div className="text-white p-6">PNR Status</div>;
