@@ -9,6 +9,12 @@ router.get("/search", (req, res) => trainController.searchTrainByName(req, res))
 // GET /api/trains/between?from=...&to=...&date=...
 router.get("/between", (req, res) => trainController.searchTrainsBetween(req, res));
 
+// GET /api/trains/:trainNumber/live?date=...
+router.get("/:trainNumber/live", (req, res) => trainController.getLiveStatus(req, res));
+
+// GET /api/trains/:trainNumber/history?date=...
+router.get("/:trainNumber/history", (req, res) => trainController.getTrainHistory(req, res));
+
 // GET /api/trains/:trainNumber
 router.get("/:trainNumber", (req, res) => trainController.getTrainDetails(req, res));
 
