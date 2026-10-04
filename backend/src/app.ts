@@ -80,4 +80,11 @@ app.use('/api/stations', stationRoutes);
 app.use('/api/trains', trainRoutes);
 app.use('/api', bookingRoutes);
 
+// Import error middleware
+import { notFoundHandler, errorHandler } from './middleware/error.middleware';
+
+// 404 & Global Error Handling
+app.use(notFoundHandler);
+app.use(errorHandler);
+
 export default app;
