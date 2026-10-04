@@ -43,6 +43,12 @@ class RailwayService {
     return promise;
   }
 
+  // 0. Search stations (TTL: 30 mins)
+  async searchStations(query: string): Promise<Array<{ stationCode: string; stationName: string }>> {
+    const key = `stations:search:${query.toLowerCase().trim()}`;
+    return this.getOrFetch(key, 1800, () => railkitService.searchStations(query));
+  }
+
   // 1. Station details by code (TTL: 30 mins)
   async getStationByCode(code: string): Promise<{ stationCode: string; stationName: string }> {
     const key = `station:code:${code.toUpperCase().trim()}`;

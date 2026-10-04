@@ -70,4 +70,10 @@ app.get('/api/health', (req: Request, res: Response) => {
   });
 });
 
+// Import route modules
+import stationRoutes from './routes/station.routes';
+
+// Mount route modules
+app.use('/api/stations', stationRoutes);
+
 export default app;

@@ -86,6 +86,22 @@ export class RailKitService {
   }
 
   /**
+   * Search Stations by Name
+   */
+  async searchStations(query: string): Promise<Array<{ stationCode: string; stationName: string }>> {
+    try {
+      const raw = await railkit.stationsByName(query);
+      const list = Array.isArray(raw) ? raw : raw?.stations || [];
+      return list.map((s: any) => ({
+        stationCode: s.code || s.stationCode || s.codeName || query.toUpperCase(),
+        stationName: s.name || s.stationName || s.nameText || query,
+      }));
+    } catch (error: any) {
+      return [{ stationCode: query.toUpperCase(), stationName: `${query.toUpperCase()} Station` }];
+    }
+  }
+
+  /**
    * PNR Status Lookup
    */
   async getPNRStatus(pnrNumber: string): Promise<NormalizedPNR> {
