@@ -1,0 +1,19 @@
+{
+  "name": "rail-eta-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RailETA — Premium Live Train Tracking, ETA Intelligence & Railway Information System",
+  "scripts": {
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build",
+    "start": "node backend/dist/server.js",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"cyan,blue\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "test": "cd backend && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  }
+}
