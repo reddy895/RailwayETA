@@ -73,9 +73,11 @@ app.get('/api/health', (req: Request, res: Response) => {
 // Import route modules
 import stationRoutes from './routes/station.routes';
 import trainRoutes from './routes/train.routes';
+import bookingRoutes from './routes/booking.routes';
 
 // Mount route modules
 app.use('/api/stations', stationRoutes);
 app.use('/api/trains', trainRoutes);
+app.use('/api', bookingRoutes);
 
 export default app;
