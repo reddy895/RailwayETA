@@ -44,6 +44,57 @@ export class StationController {
       );
     }
   }
+
+  // GET /api/stations/:stationCode/live?hours=2|4|8
+  async getLiveBoard(req: Request, res: Response): Promise<Response> {
+    try {
+      const stationCode = String(req.params.stationCode || "").trim();
+      const hoursParam = Number(req.query.hours || 4);
+      const hours: 2 | 4 | 8 = [2, 4, 8].includes(hoursParam) ? (hoursParam as 2 | 4 | 8) : 4;
+
+      if (!stationCode) {
+        return sendError(res, "Station code is required", 400, "INVALID_STATION_CODE");
+      }
+
+      const board = await railwayService.getStationLiveBoard(stationCode, hours);
+      return sendSuccess(res, board);
+    } catch (error: any) {
+      return sendError(
+        res,
+        error.message || `Unable to fetch live board for station ${req.params.stationCode}`,
+        500,
+        "STATION_BOARD_ERROR"
+      );
+    }
+  }
+
+  // GET /api/stations/:stationCode/timetable?date=...
+  async getStationTimetable(req: Request, res: Response): Promise<Response> {
+    try {
+      const stationCode = String(req.params.stationCode || "").trim();
+      const date = (req.query.date as string) || undefined;
+
+      if (!stationCode) {
+        return sendError(res, "Station code is required", 400, "INVALID_STATION_CODE");
+      }
+
+      const board = await railwayService.getStationLiveBoard(stationCode, 8);
+      return sendSuccess(res, {
+        stationCode: board.stationCode,
+        stationName: board.stationName,
+        date: date || new Date().toISOString().split("T")[0],
+        totalPassingTrains: board.trains.length,
+        trains: board.trains,
+      });
+    } catch (error: any) {
+      return sendError(
+        res,
+        error.message || `Unable to fetch timetable for station ${req.params.stationCode}`,
+        500,
+        "STATION_TIMETABLE_ERROR"
+      );
+    }
+  }
 }
 
 export const stationController = new StationController();
