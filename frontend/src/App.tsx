@@ -4,9 +4,9 @@ import { AppLayout } from './layouts/AppLayout';
 import { HomePage } from './pages/HomePage';
 import { TrainSearchPage } from './pages/TrainSearchPage';
 import { TrackTrainPage } from './pages/TrackTrainPage';
+import { StationBoardPage } from './pages/StationBoardPage';
 
 // Temporary placeholder components until detailed page commits
-const StationBoardPage = () => <div className="text-white p-6">Station Live Board</div>;
 const PnrPage = () => <div className="text-white p-6">PNR Status</div>;
 const AvailabilityPage = () => <div className="text-white p-6">Seat Availability</div>;
 
